@@ -48,10 +48,29 @@
       home = {
         # swaymsg -t get_outputs
         # to get output ID
+        # Because of scale 2.0, our main 3840x2400 monitor's position is divided by 2 ~> 1920x1200
+        #
+        # ^
+        # |                      -----------------------
+        # |                     |         DP-1          |
+        # |  ------------------ |        2560x1440      |
+        # | |       eDP-1      ||                       |
+        # | |     1920x1200    ||                       |
+        # | |                  ||                       |
+        # | |                  ||                       |
+        # |  ------------------  -----------------------
+        # 0-------------------1920-------------------------->
         file = {
           ".config/sway/config.d/hardware".text = ''
             output "eDP-1" {
+              resolution 3840x2400
               scale 2.0
+              position 0 240
+            }
+            output "DP-1" {
+              resolution 2560x1440
+              scale 1.0
+              position 1920 0
             }
             bindswitch --reload --locked lid:on output eDP-1 disable
             bindswitch --reload --locked lid:off output eDP-1 enable
