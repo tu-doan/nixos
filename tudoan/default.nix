@@ -30,6 +30,7 @@
       nodePackages.npm
       nodePackages.yarn
       nodejs
+      rclone
       ripgrep
       zoxide
 
@@ -42,6 +43,7 @@
       kdePackages.kdeconnect-kde
       slack
       signal-desktop
+      telegram-desktop
       vscode
     ];
   };
