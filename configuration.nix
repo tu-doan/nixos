@@ -110,6 +110,9 @@
   security = {
     polkit.enable = true;
     rtkit.enable = true;
+    # Issue with fprint and password
+    # https://discourse.nixos.org/t/problems-loging-in-with-password-when-fprint-is-enabled/65900
+    pam.services.swaylock.rules.auth.fprintd.order = config.security.pam.services.swaylock.rules.auth.unix.order + 50;
   };
 
   virtualisation = {
