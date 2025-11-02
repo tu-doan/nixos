@@ -54,22 +54,15 @@
   # List packages installed in system profile.
   environment = {
     systemPackages = with pkgs; [
+      # Common
+      brightnessctl
       btop
       curl
-
-      rust-analyzer
-      rustfmt
-      gcc
-
-      python3
-      uv
-
-      tenv
-      terraform-ls
-
       file
       git
       gnumake
+      grim
+      libnotify
       kitty
       tmux
       tree
@@ -78,13 +71,19 @@
       watch
       wget
 
+      # hyprland
+      pyprland
+      hyprpicker
+      hyprcursor
+      hyprlock
+      hypridle
+      hyprpaper
+
+      # Theme
       adwaita-icon-theme # mouse cursor and icons
       gnome-themes-extra # dark adwaita theme
 
-      brightnessctl
-      # feh
-      grim
-      libnotify
+      # Desktop
       mako
       mpv
       pavucontrol
@@ -96,14 +95,6 @@
       wl-clipboard
       xdg-utils
       zathura
-
-      pyprland
-      hyprpicker
-      hyprcursor
-      hyprlock
-      hypridle
-      hyprpaper
-      greetd.tuigreet
     ];
   };
 

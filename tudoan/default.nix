@@ -1,6 +1,10 @@
 { pkgs, ... }:
 
 {
+  imports = [
+    ./language.nix
+  ];
+
   users.users.tudoan = {
     isNormalUser = true;
     description = "Tu Doan";
@@ -14,32 +18,27 @@
     shell = pkgs.zsh;
     packages = with pkgs; [
       aria
-      brave
-      discord-ptb
       fd
       ffmpeg
       fzf
+      gcc
       gh
-      go
+      gnome-sound-recorder
+      gpu-screen-recorder
       jq
+      kdePackages.kdeconnect-kde
       kubectl
       kubernetes-helm
       kustomize
-      nodePackages.npm
-      nodePackages.yarn
-      nodejs
       rclone
       ripgrep
       zoxide
 
-      lua-language-server
-
+      brave
+      discord-ptb
       firefox-wayland
-      gnome-sound-recorder
-      gpu-screen-recorder
-      kdePackages.kdeconnect-kde
-      slack
       signal-desktop
+      slack
       telegram-desktop
       vscode
     ];
