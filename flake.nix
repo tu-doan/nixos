@@ -12,9 +12,10 @@
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    hyprland.url = "github:hyprwm/Hyprland";
   };
 
-  outputs = { self, nixpkgs, nixos-hardware, home-manager }: {
+  outputs = { self, nixpkgs, nixos-hardware, home-manager, hyprland }: {
     nixosConfigurations = {
       ThinkpadP16s = nixpkgs.lib.nixosSystem {
         modules = [

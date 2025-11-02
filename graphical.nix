@@ -45,35 +45,15 @@
     };
   };
 
+  environment.sessionVariables = {
+    NIXOS_OZONE_WL = "1";
+  };
+
   programs = {
-    sway = {
+    hyprland = {
       enable = true;
-      wrapperFeatures = {
-        gtk = true;
-      };
-      extraPackages = with pkgs; [
-        adwaita-icon-theme # mouse cursor and icons
-        gnome-themes-extra # dark adwaita theme
-        autotiling
-        feh
-        grim
-        i3status-rust
-        libnotify
-        mako
-        mpv
-        pavucontrol
-        pcmanfm
-        rofi-wayland
-        slurp
-        soteria
-        wlogout
-        swayidle
-        swaylock
-        wl-clipboard
-        xdg-utils
-        zathura
-      ];
     };
+
     light.enable = true;
     dconf.enable = true;
     virt-manager = {
@@ -83,6 +63,8 @@
   };
 
   fonts.packages = with pkgs; [
+    nerd-font-patcher
+    nerd-fonts.ubuntu-sans
     nerd-fonts.meslo-lg
   ];
 

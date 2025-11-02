@@ -10,6 +10,9 @@
   };
 
   hardware = {
+    graphics = {
+      enable32Bit = true;
+    };
     bluetooth.enable = true;
   };
 
@@ -51,18 +54,56 @@
   # List packages installed in system profile.
   environment = {
     systemPackages = with pkgs; [
+      btop
       curl
-      file
+
+      rust-analyzer
+      rustfmt
       gcc
+
+      python3
+      uv
+
+      tenv
+      terraform-ls
+
+      file
       git
       gnumake
-      python3
+      kitty
       tmux
       tree
       unzip
       vim
       watch
       wget
+
+      adwaita-icon-theme # mouse cursor and icons
+      gnome-themes-extra # dark adwaita theme
+
+      brightnessctl
+      # feh
+      grim
+      libnotify
+      mako
+      mpv
+      pavucontrol
+      nautilus
+      rofi-wayland
+      slurp
+      soteria
+      waybar
+      wl-clipboard
+      xdg-utils
+      zathura
+
+      pyprland
+      hyprpicker
+      hyprcursor
+      hyprlock
+      hypridle
+      hyprpaper
+      greetd.tuigreet
     ];
   };
 
@@ -75,7 +116,7 @@
       enable = true;
       loginShellInit = ''
         if [ -z "$WAYLAND_DISPLAY" ] && [ "$XDG_VTNR" -eq 1 ]; then
-          exec sway
+          exec Hyprland
         fi
       '';
     };
@@ -112,7 +153,7 @@
     rtkit.enable = true;
     # Issue with fprint and password
     # https://discourse.nixos.org/t/problems-loging-in-with-password-when-fprint-is-enabled/65900
-    pam.services.swaylock.rules.auth.fprintd.order = config.security.pam.services.swaylock.rules.auth.unix.order + 50;
+    pam.services.hyprlock.rules.auth.fprintd.order = config.security.pam.services.hyprlock.rules.auth.unix.order + 50;
   };
 
   virtualisation = {

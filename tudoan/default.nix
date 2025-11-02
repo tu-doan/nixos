@@ -18,8 +18,6 @@
       discord-ptb
       fd
       ffmpeg
-      kitty
-      foot
       fzf
       gh
       go
@@ -35,7 +33,6 @@
       zoxide
 
       lua-language-server
-      terraform-ls
 
       firefox-wayland
       gnome-sound-recorder
@@ -64,13 +61,21 @@
       };
       gtk = {
         enable = true;
+        font.name = "MesloLGS Nerd Font Mono";
+        font.size = 12;
         theme = {
           package = pkgs.arc-theme;
           name = "Arc-Dark";
         };
         iconTheme = {
-          package = pkgs.arc-icon-theme;
-          name = "Arc";
+          package = pkgs.papirus-icon-theme;
+          name = "Papirus";
+        };
+        gtk3.extraConfig = {
+          gtk-application-prefer-dark-theme = true;
+        };
+        gtk4.extraConfig = {
+          gtk-application-prefer-dark-theme = true;
         };
       };
     };
