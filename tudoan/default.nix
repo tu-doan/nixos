@@ -3,6 +3,7 @@
 {
   imports = [
     ./language.nix
+    ./nordvpn.nix
   ];
 
   users.users.tudoan = {
@@ -79,4 +80,7 @@
       };
     };
   };
+
+  tudoan.services.custom.nordvpn.enable=true;
+
 }
