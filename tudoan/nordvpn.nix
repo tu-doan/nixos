@@ -1,3 +1,4 @@
+# https://gist.github.com/myypo/31c52196f7987ef62f54092cb07aefd7
 {
   config,
   lib,
@@ -25,15 +26,15 @@
     wireguard-tools,
   }: let
     pname = "nordvpn";
-    version = "4.1.1";
+    version = "4.3.1";
     # nix-prefetch-url "<pkgs_url>_amd64.deb" | xargs nix hash to-sri --type sha256
-    hash = "sha256-JWgY0V2GbA9fJ01VhiGfUvVzau/FLOd/kDu2nQ3rMuY=";
+    hash = "sha256-oFf4uxZsucAh2yW++SQRxFx8+JdL8ZsNzWqzjJ2JqUs=";
 
     nordVPNBase = stdenv.mkDerivation {
       inherit pname version;
 
       src = fetchurl {
-        url = "https://repo.nordvpn.com/deb/nordvpn/debian/pool/main/nordvpn_${version}_amd64.deb";
+        url = "https://repo.nordvpn.com/deb/nordvpn/debian/pool/main/n/nordvpn/nordvpn_${version}_amd64.deb";
         hash = hash;
       };
 
