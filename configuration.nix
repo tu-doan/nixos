@@ -23,11 +23,15 @@
   };
 
   systemd = {
+    packages = with pkgs; [ lact ];
+
     services = {
+      lactd.wantedBy = ["multi-user.target"];
       NetworkManager-wait-online = {
         enable = false;
       };
     };
+
   };
 
   time.timeZone = "Asia/Ho_Chi_Minh";
@@ -53,6 +57,7 @@
 
   # List packages installed in system profile.
   environment = {
+    etc.hosts.enable = false;
     systemPackages = with pkgs; [
       # Common
       brightnessctl
@@ -62,6 +67,7 @@
       git
       gnumake
       grim
+      lact
       libnotify
       kitty
       tmux
@@ -73,11 +79,12 @@
 
       # hyprland
       pyprland
-      hyprpicker
       hyprcursor
-      hyprlock
       hypridle
+      hyprlock
       hyprpaper
+      hyprpanel
+      hyprpicker
 
       # Theme
       adwaita-icon-theme # mouse cursor and icons

@@ -5,11 +5,19 @@
     ./hardware-configuration.nix
   ];
 
+  boot.kernelParams = [ "mem_sleep_default=deep" ];
+
   hardware = {
     graphics = {
+      enable = true;
       enable32Bit = true;
     };
   };
+
+  swapDevices = [ {
+    device = "/var/lib/swapfile";
+    size = 16*1024;
+  } ];
 
   nixpkgs = {
     config = {
@@ -19,6 +27,7 @@
   };
 
   networking = {
+    enableIPv6 = false;
     hostName = "ThinkpadP16s";
   };
 

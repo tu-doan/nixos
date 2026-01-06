@@ -18,7 +18,11 @@
     ];
     shell = pkgs.zsh;
     packages = with pkgs; [
+      # CLI
       aria
+      awscli2
+      claude-code
+      dig
       fd
       ffmpeg
       fzf
@@ -31,10 +35,14 @@
       kubectl
       kubernetes-helm
       kustomize
+      mtr
+      pritunl-client
       rclone
       ripgrep
+      traceroute
       zoxide
 
+      # GUI
       brave
       discord-ptb
       firefox-wayland
@@ -50,6 +58,9 @@
     useUserPackages = true;
     users.tudoan = {
       home = {
+        # You should not change this value, even if you update Home Manager. If you do
+        # want to update the value, then make sure to first check the Home Manager
+        # release notes.
         stateVersion = "25.05";
       };
       services = {
