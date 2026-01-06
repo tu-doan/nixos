@@ -19,7 +19,7 @@
     shell = pkgs.zsh;
     packages = with pkgs; [
       # CLI
-      aria
+      aria2
       awscli2
       claude-code
       dig
@@ -45,7 +45,7 @@
       # GUI
       brave
       discord-ptb
-      firefox-wayland
+      firefox
       signal-desktop
       slack
       telegram-desktop

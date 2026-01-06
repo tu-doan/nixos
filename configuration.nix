@@ -95,7 +95,7 @@
       mpv
       pavucontrol
       nautilus
-      rofi-wayland
+      rofi
       slurp
       soteria
       waybar
